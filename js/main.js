@@ -37,12 +37,16 @@ function addLinha() {
         linha += `</tr>`;
     
         linhas += linha;
+        
     }
 
 
     // Limpa campos após o 'submit', function ter sido usada
     inputNomeAtiviade.value = '';
     inputNotaAtiviade.value = '';
+
+    // retorna para o campo 'inputNomeAtiviade'
+    inputNomeAtiviade.focus();
 };
 
 function atualizaTabela() {
@@ -53,7 +57,7 @@ function atualizaTabela() {
 function atualizaMediaFinal() {
     const mediaFinal = calculoMediaFinal();
 
-    document.getElementById('media-final-valor').innerHTML = mediaFinal;
+    document.getElementById('media-final-valor').innerHTML = mediaFinal.toFixed(2);
     document.getElementById('media-final-resultado').innerHTML = mediaFinal >= notaMinima ? spanAprovado : spanReprovado;
 }
 
